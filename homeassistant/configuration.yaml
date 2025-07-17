@@ -1,0 +1,22 @@
+homeassistant:
+  name: Jarvis
+  latitude: 53.6616
+  longitude: 9.8238
+  elevation: 10
+  unit_system: metric
+  time_zone: Europe/Berlin
+
+api:
+
+mqtt:
+  broker: mqtt
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+tts:
+  - platform: google_translate
+
+script: !include_dir_merge_named scripts/
+automation: !include automations.yaml

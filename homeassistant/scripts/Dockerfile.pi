@@ -1,0 +1,7 @@
+FROM python:3.11-slim
+RUN apt-get update && \
+    apt-get install -y libportaudio2 && \
+    pip install pvporcupine pyaudio openai google-api-python-client google-auth-httplib2 google-auth-oauthlib requests
+WORKDIR /app
+COPY . /app
+CMD ["python", "wakeword.py"]
